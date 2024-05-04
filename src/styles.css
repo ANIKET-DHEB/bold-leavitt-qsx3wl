@@ -1,0 +1,349 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: Roboto;
+}
+.orignalPrice {
+  text-decoration: line-through;
+}
+
+.image {
+  width: 10rem;
+}
+.home {
+  text-decoration: none;
+  width: 12rem;
+  height: 2.5rem;
+  background-color: #ff9f00;
+  border: none;
+  overflow: hidden;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.Productname {
+  color: black;
+  font-size: 11px;
+}
+
+.maincontent {
+  display: inline-block;
+  margin: 10px;
+  width: 21%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  padding-left: 21px;
+}
+.textcontent {
+  width: 15rem;
+}
+.discountedprice {
+  margin-left: 1rem;
+  font-size: 19px;
+  margin-top: 1rem;
+}
+.orignalPrice {
+  margin-left: 1rem;
+  font-size: 16px;
+  margin-top: 1rem;
+}
+.navbar
+{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .navbar button {
+  margin-right: 10rem;
+} */
+.brand-logo
+{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: .5rem;
+  border-radius: 30px;
+  margin-left: 1rem;
+}
+
+ .brand-name {
+    letter-spacing: 2px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+  }
+.Cartbtn {
+  /* padding-left: 10rem; */
+  border: none;
+  overflow: hidden;
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+  background: transparent;
+}
+.Storebtn {
+  /* padding-left: 8rem; */
+  border: none;
+  overflow: hidden;
+  color:black;
+  font-size: 25px;
+  cursor: pointer;
+  background: transparent;
+}
+.wishlistbtn {
+  /* padding-left:10rem; */
+  border: none;
+  overflow: hidden;
+  color: rgb(255, 60, 92);
+  font-size: 25px;
+  cursor: pointer;
+  background: transparent;
+}
+.loginbtn {
+/* padding-left:17rem; */
+  border: none;
+  overflow: hidden;
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+  background: transparent;
+}
+.Addtocartbtn {
+  width: 7rem;
+  height: 2.5rem;
+  background-color: #ff9f00;
+  border: none;
+  outline: none;
+  border-radius: 1px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.Addtocartbtn:hover {
+  background-color: #fff;
+  color: black;
+  border: 2px solid#FF9F00;
+}
+.AddtoWishlistbtn {
+  margin-left: 1rem;
+  width: 7rem;
+  height: 2.5rem;
+  background-color: #fb641b;
+  border: none;
+  overflow: hidden;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.AddtoWishlistbtn:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #fb641b;
+}
+.Startbtn {
+  position: relative;
+  left: 43%;
+  width: 12rem;
+  height: 2.5rem;
+  background-color: #ff9f00;
+  border: none;
+  overflow: hidden;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+.cartcontent {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.cartimg {
+  width: 16%;
+  height: 5%;
+}
+.btn {
+  width: 10%;
+}
+.header {
+  text-align: center;
+}
+.product {
+  padding-top: 10px;
+  font-size: 19px;
+  font-weight: bold;
+}
+.removebtn {
+  width: 7rem;
+  height: 2rem;
+}
+.texter {
+  width: 27%;
+  margin-left: 3rem;
+}
+.currency {
+  /* padding-left: 1rem; */
+  font-size: 19px;
+  font-weight: 600;
+}
+.incbtn {
+  margin-left: 10px;
+  width: 7%;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.decbtn {
+  margin-left: 10px;
+  width: 7%;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.quantity {
+  padding-left: 1rem;
+  font-weight: 600;
+}
+.removebtn {
+  margin-left: 1rem;
+  width: 20%;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.buynowbtn
+{
+  width: 20%;
+  height: 2rem;
+  margin-left: 1rem;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.removelist {
+  width: 15%;
+  font-size: 15px;
+  height: 2rem;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.wishlistpage {
+  text-align: center;
+}
+.wishlistproduct {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.wishlistimg {
+  margin-top: 2rem;
+  width: 13rem;
+}
+.logincontent {
+  height: 350px;
+  width: 220px;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(17, 17, 17, 0.3);
+  margin-top: 3rem;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+.loginheader {
+  text-align: center;
+  font-family: sans-serif;
+  padding-top: 25px;
+}
+.Label1 {
+  margin-left: 15px;
+}
+.username {
+  margin-left: 19px;
+  margin-top: 5px;
+  width: 80%;
+  height: 6%;
+  padding-left: 5px;
+}
+.Label2 {
+  margin-left: 15px;
+  margin-top: 1.5rem;
+}
+.password {
+  margin-left: 19px;
+  margin-top: 5px;
+  width: 81%;
+  height: 6%;
+  padding-left: 5px;
+}
+.submitbtn {
+  width: 60%;
+  margin-top: 1.5rem;
+  margin-left: 2.8rem;
+  height: 10%;
+  background-color: #ff9f00;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  overflow: hidden;
+}
+.icon {
+  display: none;
+}
+.menu false {
+  display: contents;
+}
+.homepage {
+  padding-top: 1.5rem;
+}
+.homeimg {
+  height: 400px;
+  width: 100%;
+}
+.headingname {
+  text-align: center;
+}
+.text {
+  text-align: center;
+  font-weight: 200;
+  color: hwb(0 19% 80%);
+  word-spacing: 2px;
+  font-size: 22px;
+}
+.text1 {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 100;
+  word-spacing: 2px;
+  color: #222121;
+}
+.fontIcon
+{
+  font-size: .8rem !important;
+  font-weight: 600;
+  color:black;
+}
+.imgcontainer
+{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  text-align: center;
+}
+.productName
+{
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
