@@ -15,8 +15,7 @@ const Cart = () => {
   const { pathname } = useLocation();
 
   const totalCartValue = cartItems.reduce((totalValue, cartItem) => {
-    return (totalValue =
-      totalValue + cartItem.item.discountedPrice * cartItem.quantity);
+    return totalValue + cartItem.item.discountedPrice * cartItem.quantity;
   }, 0);
 
   const RemoveHandler = (productToRemove) => {
@@ -27,17 +26,13 @@ const Cart = () => {
     increaseCartQuantity(increaseProduct);
   };
 
-  const DecreaseCartHandler = (deecreaseProduct) => {
-    decreaseCartQuantity(deecreaseProduct);
+  const DecreaseCartHandler = (decreaseProduct) => {
+    decreaseCartQuantity(decreaseProduct);
   };
 
   return (
     <div>
       <ProtectedRoute path={pathname} />
-      <p className="header">
-        <h2>Total Cart Items: {cartItems.length}</h2>
-        <h2>Total Cart Value: {totalCartValue} </h2>
-      </p>
       {cartItems.map(({ item, quantity, imgUrl }) => {
         return (
           <div key={item.id}>
@@ -80,14 +75,30 @@ const Cart = () => {
                     Remove
                   </button>
                   <NavLink to="/checkout">
-             <button className="buynowbtn">BuyNow</button>
-              </NavLink>
+                    <button className="buynowbtn">BuyNow</button>
+                  </NavLink>
                 </p>
               </div>
             </p>
           </div>
         );
       })}
+      <div className="cart-total-container">
+        {/* Container for cart total section */}
+
+        <div className="cart-total">
+          <h2>Cart Totals</h2>
+          <div className="cart-subtotal">
+            <span>Sub Total ({cartItems.length} items):</span>
+            <span>{totalCartValue}</span>
+          </div>
+          <div className="cart-checkout-btn">
+            <NavLink to="/checkout">
+              <button className="checkoutbtn">Proceed to Checkout</button>
+            </NavLink>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

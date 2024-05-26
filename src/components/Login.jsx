@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
 const Login = () => {
@@ -11,10 +11,10 @@ const Login = () => {
   const { state } = useLocation();
 
   const loginHandler = () => {
-    if (username === "aniket" && password === "12345678") {
+    if (username === "" && password === "") {
       setIsUserLoggedIn(true);
     } else {
-      alert("invalid email or password");
+      alert("Invalid email or password");
     }
   };
 
@@ -33,7 +33,7 @@ const Login = () => {
         <h1 className="loginheader">Login</h1>
 
         <label className="Label1" htmlFor="UserName ">
-          UserName:
+          Enter your email:
         </label>
 
         <input
@@ -45,7 +45,7 @@ const Login = () => {
         />
 
         <label className="Label2" htmlFor="password">
-          Passsword:
+          Enter Passsword:
         </label>
 
         <input
@@ -57,6 +57,9 @@ const Login = () => {
         <button className="submitbtn" onClick={loginHandler}>
           Submit
         </button>
+        <p className="signup">
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </p>
       </div>
     </div>
   );
