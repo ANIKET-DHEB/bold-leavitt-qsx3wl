@@ -1,25 +1,32 @@
-import { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Navigate, useLocation, Link } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "./firebase";
+
+const auth = getAuth(app);
 
 const Login = () => {
-  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(AuthContext);
-
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [error, setError] = useState(null);
+
+  const signinUser = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((value) => {
+        console.log("Login is successful");
+        setIsUserLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error("Error signing in:", err);
+        alert(`Error: {Invalid Email or Passsword}`);
+      });
+  };
 
   const { state } = useLocation();
 
-  const loginHandler = () => {
-    if (username === "" && password === "") {
-      setIsUserLoggedIn(true);
-    } else {
-      alert("Invalid email or password");
-    }
-  };
-
-  const setLoginUserName = (e) => {
-    setUsername(e.target.value);
+  const setLoginEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   const setLoginPassword = (e) => {
@@ -28,33 +35,31 @@ const Login = () => {
 
   return (
     <div>
-      {isUserLoggedIn && <Navigate to={state.from} replace />}
+      {isUserLoggedIn && <Navigate to={state?.from || "/cart"} replace />}{" "}
       <div className="logincontent">
         <h1 className="loginheader">Login</h1>
-
-        <label className="Label1" htmlFor="UserName ">
+        <label className="Label1" htmlFor="UserName">
           Enter your email:
         </label>
-
         <input
-          className="username"
+          className="Email"
           type="email"
-          value={username}
-          onChange={setLoginUserName}
+          value={email}
+          onChange={setLoginEmail}
           required
         />
-
         <label className="Label2" htmlFor="password">
-          Enter Passsword:
+          Enter Password:
         </label>
-
         <input
           className="password"
           type="password"
           value={password}
           onChange={setLoginPassword}
+          required
         />
-        <button className="submitbtn" onClick={loginHandler}>
+        {error && <p className="error">{error}</p>}{" "}
+        <button className="submitbtn" onClick={signinUser}>
           Submit
         </button>
         <p className="signup">

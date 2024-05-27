@@ -8,27 +8,29 @@ import Wishlist from "./components/Wishlist";
 import Login from "./components/Login";
 import { MenuIcon } from "./icons/Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStore } from "@fortawesome/free-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStore,
+  faCartShopping,
+  faHeart,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import Checkout from "./components/Checkout";
 import Signup from "./components/Signup";
-import { getDatabase, ref, set } from "firebase/database";
-import { app } from "./firebase";
-const db = getDatabase(app);
+import firebase from "./components/firebase";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+// const auth = getAuth(app);
 
 function App() {
-  const putData = () => {
-    set(ref(db, "user/aniket"), {
-      id: 1,
-      name: "aniket",
-      age: 21,
-    });
-  };
-}
+  // const SignupUser = () => {
+  //   createUserWithEmailAndPassword(
+  //     auth,
+  //     "aniketdheb.@gmail.com",
+  //     "aniket",
+  //   ).then((value) => console.log(value));
+  //   // .catch((error) => console.error("Error signing up:", error));
+  // };
 
-function App() {
   const { pathname } = useLocation();
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isStorebtn, setIsStorebtn] = useState(pathname === "/");
@@ -40,6 +42,7 @@ function App() {
   const handleGoToCartClick = () => {
     setIsStorebtn(true);
   };
+
   return (
     <div className="App">
       <nav
@@ -88,9 +91,7 @@ function App() {
               <FontAwesomeIcon className="login-icon" icon={faUser} />
               <div className="fontIcon">LOGIN</div>
             </button>
-            <button onClick={putdata}>put data</button>
           </Link>
-          {/* </div> */}
         </div>
       </nav>
       <div>

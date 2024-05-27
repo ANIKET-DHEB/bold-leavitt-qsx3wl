@@ -10,4 +10,6 @@ const firebaseConfig = {
   databaseURL: "https://petstore-7b883-default-rtdb.firebaseio.com",
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+export { app };
