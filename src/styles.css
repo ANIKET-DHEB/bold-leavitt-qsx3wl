@@ -574,3 +574,23 @@
     width: 36%;
   }
 }
+@media (max-width: 500px) {
+  .maincontent {
+    margin-left: 3.2rem;
+  }
+  .headingname {
+    font-size: 27px;
+    margin-top: 2rem;
+  }
+  .text {
+    font-size: 20px;
+    margin-top: 2rem;
+  }
+  .text1 {
+    font-size: 24px;
+    padding-top: 1rem;
+  }
+  .Startbtn {
+    margin-top: 1rem;
+  }
+}
