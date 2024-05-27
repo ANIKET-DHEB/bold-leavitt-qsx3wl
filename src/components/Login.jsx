@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Navigate, useLocation, Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "./firebase";
+import { AuthContext } from "../context/auth.context";
 
 const auth = getAuth(app);
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const { isUserLoggedIn, setIsUserLoggedIn } = useContext(AuthContext);
   const [error, setError] = useState(null);
+
+  const { state } = useLocation();
 
   const signinUser = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -19,11 +22,9 @@ const Login = () => {
       })
       .catch((err) => {
         console.error("Error signing in:", err);
-        alert(`Error: {Invalid Email or Passsword}`);
+        setError("Invalid Email or Password");
       });
   };
-
-  const { state } = useLocation();
 
   const setLoginEmail = (e) => {
     setEmail(e.target.value);
@@ -35,7 +36,7 @@ const Login = () => {
 
   return (
     <div>
-      {isUserLoggedIn && <Navigate to={state?.from || "/cart"} replace />}{" "}
+      {isUserLoggedIn && <Navigate to={state?.from || "/"} replace />}
       <div className="logincontent">
         <h1 className="loginheader">Login</h1>
         <label className="Label1" htmlFor="UserName">
@@ -58,7 +59,7 @@ const Login = () => {
           onChange={setLoginPassword}
           required
         />
-        {error && <p className="error">{error}</p>}{" "}
+        {error && <p className="error">{error}</p>}
         <button className="submitbtn" onClick={signinUser}>
           Submit
         </button>
