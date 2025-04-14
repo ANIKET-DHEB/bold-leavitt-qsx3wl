@@ -37,7 +37,7 @@ export const Product = ({ product }) => {
           className="Addtocartbtn"
           onClick={() => addToCartHandler(product)}
         >
-          ADD ITEM TO CART
+          ADD TO CART
         </button>
 
         <button
@@ -50,7 +50,3 @@ export const Product = ({ product }) => {
     </div>
   );
 };
-
-
-
-
